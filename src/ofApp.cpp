@@ -1,10 +1,36 @@
 #include "ofApp.h"
+#include <random>
+using namespace std;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	
+	std::random_device rand;
+	std::mt19937 engine1(rand());
+	std::mt19937 engine2(1337);
+	
+	float X;
+	float Y;
+	
+	int min =1200;
+	int max=0;
+	
+	
+	std::normal_distribution<float> normal(X,Y);
+	std::uniform_int_distribution<> uniform(min,max);
+	
+	for(int n=0;n<20;n++)
+	{
+		cout<<normal(engine1)<<"";
+	}
+	
+	for(int n=0 ;  n < 20 ; n++) 
+  {
+        cout<<uniform(engine2)<<" ";// same output each time
+    }
 jewel.load("diamond.png");// image to use (must be stored in "random/bin/data" folder)
-X = {500, 1000, 30, 100, 300, 200, 750, 380 };// set of x-coordinates for jewel
-Y = {630, 400, 900,40, 200, 0, 90, 30}; //set of y-coordinates for jewel
+//X = {500, 20, 30, 80, 300, 200, 750, 380 };// set of x-coordinates for jewel
+//Y = {630, 400, 900,40, 200, 0, 90, 30}; //set of y-coordinates for jewel
 }
 
 //--------------------------------------------------------------
